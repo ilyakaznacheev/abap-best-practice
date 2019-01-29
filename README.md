@@ -6,7 +6,7 @@ A list of common principles of clean ABAP development.
 
 Missing something? Something is wrong? Find a typo?
 
-Feel free to create an issue or make a pull request. More information in contributors guide.
+Feel free to create an issue or make a pull request. More information in [contributors guide](https://github.com/ilyakaznacheev/abap-best-practice/blob/master/CONTRIBUTING.md).
 
 #### Contents
 
