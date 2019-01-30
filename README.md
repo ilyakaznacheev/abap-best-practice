@@ -22,6 +22,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Comment what you do, not how you do](#Comment-what-you-do-not-how-you-do)
     - [Be as local as possible](#Be-as-local-as-possible)
     - [Avoid deep nesting](#Avoid-deep-nesting)
+    - [Use automated code checks](#Use-automated-code-checks)
+    - [Delete dead code](#Delete-dead-code)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#Do-not-hardcode-texts)
     - [Do not use text constants](#Do-not-use-text-constants)
@@ -146,6 +148,18 @@ ENDLOOP.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennesting_depth_guidl.htm)
 
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_obj_progr_model_guidl.htm)
+
+### Use automated code checks
+
+Use syntax check, extended program check, and code inspector to validate your code syntax, architecture, guidelines, vulnerabilities, and other quality aspects.
+
+### Delete dead code
+
+Remove old and unused code. Syntax check and extended program check will help you to find it.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendead_code_guidl.htm)
+
 ## Language and Translation
 
 ### Do not hardcode texts
@@ -199,8 +213,6 @@ ABAP is an enterprise programming language, and OOP can better then others descr
 business processes.
 
 Furthermore, all new SAP technologies are class-based.
-
-[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_obj_progr_model_guidl.htm)
 
 ## Database Usage
 
