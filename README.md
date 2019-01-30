@@ -21,6 +21,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Write self-describing code](#Write-self-describing-code)
     - [Comment what you do, not how you do](#Comment-what-you-do-not-how-you-do)
     - [Be as local as possible](#Be-as-local-as-possible)
+    - [Avoid deep nesting](#Avoid-deep-nesting)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#Do-not-hardcode-texts)
     - [Do not use text constants](#Do-not-use-text-constants)
@@ -103,6 +104,47 @@ In the best case, short description o9f business logic unit in method header or 
 ### Be as local as possible
 
 Create variables, methods and attributes with as lowest scope as possible. The greater the scope you variable/method has, the more coupled your program is.
+
+### Avoid deep nesting
+
+Don't write deeply nested loops, cases, and other control structures. Instead of nesting exit from control structure with ifs, checks, and returns.
+
+Bad:
+```abap
+LOOP AT lt_data ASSIGNING <ls_data>.
+  IF a = b.
+    IF c = d.
+      IF ls_data IS NOT INITIAL.
+        ls_data-field = 'aaa'.
+      ENDIF.
+    ELSE.
+      ls_data-field = 'bbb'.
+    ENDIF.
+  ELSE.
+    ls_data-field = 'ccc'.
+  ENDIF.
+ENDLOOP.
+```
+
+Good:
+```abap
+LOOP AS lt_data ASSIGNING <ls_data>.
+  IF a <> b.
+    ls_data-field = 'ccc'.
+    CONTINUE.
+  ENDIF.
+
+  IF c <> d.
+    ls_data-field = 'bbb'.
+    CONTINUE.
+  ENDIF.
+
+  CHECK ls_data IS NOT INITIAL.
+  ls_data-field = 'aaa'.
+ENDLOOP.
+```
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennesting_depth_guidl.htm)
 
 ## Language and Translation
 
