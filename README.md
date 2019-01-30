@@ -148,7 +148,6 @@ ENDLOOP.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abennesting_depth_guidl.htm)
 
-[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_obj_progr_model_guidl.htm)
 
 ### Use automated code checks
 
@@ -214,6 +213,8 @@ business processes.
 
 Furthermore, all new SAP technologies are class-based.
 
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_obj_progr_model_guidl.htm)
+
 ## Database Usage
 
 ### Use OpenSQL whereas possible
@@ -238,7 +239,6 @@ Try to avoid DB operations in loops like `DO-ENDDO`, `WHILE-ENDWHILE`, `LOOP-END
 Instead, extract operation criteria from the loop and execute DB operation **once**.
 
 It may be difficult from an architecture perspective to decouple DB operations from loops. To solve this problem you can use Data Access Class (DAC) pattern to encapsulate all DB operations into some class (or set of classes) and perform DB operations as little as possible (e.g. before loop or after loop using lazy load). Then perform a regular read in a loop, but from internal table encapsulated in DAC, not from DB.
-
 
 ## Testing
 
