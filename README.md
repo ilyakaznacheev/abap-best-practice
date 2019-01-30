@@ -13,7 +13,11 @@ Feel free to create an issue or make a pull request. More information in [contri
 - [Style and Guidelines](#style-and-guidelines) 
     - [Use Pretty-Printer](#use-pretty-printer)
     - [Use Naming Conventions](#use-naming-conventions)
+    - [Use snake_case](#Use-snake_case)
 - [Coding](#coding)
+    - [Follow the Separation of Concerns principle](#Follow-the-Separation-of-Concerns-principle)
+    - [Write self-describing code](#Write-self-describing-code)
+    - [Comment what you do, not how you do](#Comment-what-you-do-not-how-you-do)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#Do-not-hardcode-texts)
     - [Do not use text constants](#Do-not-use-text-constants)
@@ -46,9 +50,35 @@ Choose naming rules for every code or dictionary object you create. Use it to av
 
 In addition, you can setup Code Inspector to check naming convention. 
 
+### Use snake_case
+
+Name your variables, methods, classes, etc. with underscores between words like `lo_table_container->get_sorted_table_data()`. It is the standard convention for ABAP.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Snake_case#Examples_of_languages_that_use_snake_case_as_convention)
+
 ## Coding
 
-todo
+### Follow the Separation of Concerns principle
+
+Separate program into units with minimal overlapping between the functions of the individual units.
+
+### Write self-describing code
+
+Good code should explain itself. Self-describing code doesn't require so much comments or huge documentation.
+
+Make you statements self-explanatory, e.g.:
+
+- choose meaningful names for variables, functions, classes, etc. (`lv_i` → `lv_index`, `lt_data` → `lt_sale_orders`, `cl_util` → `cl_file_io_helper`, `start()` → `run_accounting_document_processing()`)
+- group logical steps into methods (e.g. split method `process_document()` into sequence of methods `prepare_document_data()`, `is_doc_creation_possible()`, `lock_tables()`, `create_document()`, `unlock_table()`, etc.)
+- decrease amount of lines in a programming block
+- decrease nesting level
+- avoid implicitness
+
+### Comment what you do, not how you do
+
+Do not comment aspects of implementation, a self-describing code will provide this information for a reader. Comment logic from the business process point of view, the information that the reader can't extract from code.
+
+In the best case, short description o9f business logic unit in method header or before method call will be enough.
 
 ## Language and Translation
 
