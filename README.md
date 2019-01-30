@@ -22,6 +22,9 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Do not hardcode texts](#Do-not-hardcode-texts)
     - [Do not use text constants](#Do-not-use-text-constants)
     - [Use text tables for text storage in DB](#Use-text-tables-for-text-storage-in-DB)
+    - [Use same original language for all objects in a project](#Use-same-original-language-for-all-objects-in-a-project)
+    - [Keep translation in mind](#Keep-translation-in-mind)
+    - [Use only English naming for development objects](#Use-only-English-naming-for-development-objects)
 - [Object-Oriented Programming](#object-oriented-programming)
     - [Use classes instead of functional modules or performs whereas possible](#Use-classes-instead-of-functional-modules-or-performs-whereas-possible)
 - [Database Usage](#database-usage)
@@ -99,6 +102,26 @@ Do not store texts in same dictionary tables as other data. Create text tables a
 - No search help needed. Texts from the text table will be automatically added into a value list;
 - No extra maintaining needed. Text column will be automatically added to a maintenance view;
 - Translations can be done with transaction `SE63`.
+
+### Use same original language for all objects in a project
+
+Pick one language and use it as an origin when you create new objects. It will be easier to maintain and translate in future.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenoriginal_langu_guidl.htm)
+
+### Keep translation in mind
+
+Remember that all texts, messages, names, etc. can be translated. Phrases will have a different length (or even different justification) in different languages. Leave some free space for it.
+
+*English phrases are much shorter, than other most-used languages.*
+
+### Use only English naming for development objects
+
+When you name some programming objects like variables, method or class names, or dictionary objects like types, structures, tables, etc. use only English names. 
+
+Do not use other languages, do not combine them. English is understandable in most countries, it is useful and polite to make your code international. Maybe it will be supported by another team from another country.
+
+And it is just a standard and a best practice in a programming world. Don't be a barbarian.
 
 ## Object-Oriented Programming
 
