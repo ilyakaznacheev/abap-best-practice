@@ -25,6 +25,10 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Avoid deep nesting](#avoid-deep-nesting)
     - [Use automated code checks](#use-automated-code-checks)
     - [Delete dead code](#delete-dead-code)
+    - [Do not ignore errors](#do-not-ignore-errors)
+    - [Use class-based exceptions](#use-class-based-exceptions)
+    - [Handle exceptions as soon as possible](#handle-exceptions-as-soon-as-possible)
+    - [One exception class per one problem, several texts for different problem reasons](#one-exception-class-per-one-problem-several-texts-for-different-problem-reasons)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -191,6 +195,30 @@ Use syntax check, extended program check, and code inspector to validate your co
 Remove old and unused code. Syntax check and extended program check will help you to find it.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendead_code_guidl.htm)
+
+### Do not ignore errors
+
+React to errors. It can be either a proper message, or blog entry, or an exception raising. But don't ignore them, otherwise, you will no way to find a cause of any problem.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenreaction_error_guidl.htm)
+
+### Use class-based exceptions
+
+There are several historical types of error in ABAP - system exceptions, classic exceptions, and class-based exceptions. System exceptions aren't allowed to use, classic exceptions are explicit and outdated. There is no reason to use other than class-based exceptions.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenclass_exception_guidl.htm)
+
+### Handle exceptions as soon as possible
+
+Better to handle exception closer on call stack to the raising clause. Handle it when the context of current stack level has enough information for proper handling.
+
+### One exception class per one problem, several texts for different problem reasons
+
+Don't create many different classes for each raising clause. Instead create one class for one kind of problem, i.e. for one type of problem handling.
+
+Create meaningful messages that describe each reason for this kind of problem. Error handling can be the same, but reasons, logging, and user notification will differ.
+
+Example: you are reading a file from PC. There can be a different problem - file is corrupted, the file is empty, access denied, etc. But if you just want to know, if the file was uploaded successful, one exception class `zcl_io_error` will be enough. But create proper messages for each error reason or error type to let the user know, *why* exactly the file was not uploaded.
 
 ## Language and Translation
 
