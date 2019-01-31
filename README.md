@@ -112,7 +112,7 @@ Create variables, methods and attributes with as lowest scope as possible. The g
 
 Avoid hard-coded constants or unnamed variables.
 
-Instead, move them into meaningful variables or constants. Note, that just move text literal with same name is not enough (`ABC123` ↛ `lc_abc123`), give it a proper description (`ABC123` → `lc_storage_class`)
+Instead, move them into meaningful variables or constants. Note, that just move text literal with the same name is not enough (`ABC123` ↛ `lc_abc123`), give it a proper description (`ABC123` → `lc_storage_class`)
 
 Bad:
 ```abap
