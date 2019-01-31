@@ -161,7 +161,7 @@ ENDLOOP.
 
 Good:
 ```abap
-LOOP AS lt_data ASSIGNING <ls_data>.
+LOOP AT lt_data ASSIGNING <ls_data>.
   IF a <> b.
     ls_data-field = 'ccc'.
     CONTINUE.
