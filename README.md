@@ -21,7 +21,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Write self-describing code](#Write-self-describing-code)
     - [Comment what you do, not how you do](#Comment-what-you-do-not-how-you-do)
     - [Be as local as possible](#Be-as-local-as-possible)
-    - [Don't use magic numbers](#Don't-use-magic-numbers)
+    - [Do not use magic numbers](#Do-not-use-magic-numbers)
     - [Avoid deep nesting](#Avoid-deep-nesting)
     - [Use automated code checks](#Use-automated-code-checks)
     - [Delete dead code](#Delete-dead-code)
@@ -108,7 +108,7 @@ In the best case, short description o9f business logic unit in method header or 
 
 Create variables, methods and attributes with as lowest scope as possible. The greater the scope you variable/method has, the more coupled your program is.
 
-### Don't use magic numbers
+### Do not use magic numbers
 
 Avoid hard-coded constants or unnamed variables.
 
