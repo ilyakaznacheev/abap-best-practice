@@ -184,6 +184,8 @@ ENDLOOP.
 
 Use syntax check, extended program check, and code inspector to validate your code syntax, architecture, guidelines, vulnerabilities, and other quality aspects.
 
+[Open Source list of checks for SCI/ATC](https://github.com/larshp/abapOpenChecks)
+
 ### Delete dead code
 
 Remove old and unused code. Syntax check and extended program check will help you to find it.
