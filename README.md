@@ -31,6 +31,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [One exception class per one problem, several texts for different problem reasons](#one-exception-class-per-one-problem-several-texts-for-different-problem-reasons)
     - [Check program accessibility](#check-program-accessibility)
     - [Wrap any shared data access into data access classes](#wrap-any-shared-data-access-into-data-access-classes)
+    - [Avoid implicit data declarations](#avoid-implicit-data-declarations)
+    - [Use built-in Boolean types and constants](#use-built-in-boolean-types-and-constants)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -144,6 +146,8 @@ lo_doc_processor->change_document(
 ).
 ```
 
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenliterals_guidl.htm)
+
 ### Avoid deep nesting
 
 Don't write deeply nested loops, cases, and other control structures. Instead of nesting exit from control structure with ifs, checks, and returns.
@@ -240,6 +244,26 @@ That ensures, that people impairments like color blindness or screen-reader user
 When you use some shared data like shared memory, shared objects, buffers, etc., don't access them directly. Instead, wrap them into setter and getter methods of static data access class.
 
 It will help you to control access to shared data and easily find any shared data changes via the where-used list. It will also allow you to mock shared data access in unit tests.
+
+### Use built-in Boolean types and constants
+
+When possible try to not use data declarations like `TABLES`, `NODES`. They create data objects with implicit access.
+
+Use `DATA` instead. Only use `NODES` with LDB. Both create global work areas that will be shared and used through all the program.
+
+Never use `TABLE ... WITH HEADER LINE`. Use either structure, field-symbol or reference with the type of table line or inline declarations and table expressions.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abentable_work_area_guidl.htm)
+
+### Use built-in Boolean types and constants
+
+When you want to use some logical information, use built-in Boolean type `abap_bool` instead of `char1` or other types.
+
+Use constants `abap_true` and `abap_false` for Boolean true and false values. Do not use literals like `'X'`, `' '` - it is a hardcode.
+
+Usage of `space`, `IS INITIAL` or `IS NOT INITIAL` is also not advisable, because they check state of technical implementation of `abap_bool`, but not the sense of real Boolean data object.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendataobjects_true_value_guidl.htm)
 
 ## Language and Translation
 
