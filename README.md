@@ -30,6 +30,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Handle exceptions as soon as possible](#handle-exceptions-as-soon-as-possible)
     - [One exception class per one problem, several texts for different problem reasons](#one-exception-class-per-one-problem-several-texts-for-different-problem-reasons)
     - [Check program accessibility](#check-program-accessibility)
+    - [Wrap any shared data access into data access classes](#wrap-any-shared-data-access-into-data-access-classes)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -235,6 +236,11 @@ That ensures, that people impairments like color blindness or screen-reader user
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenaccessibility_guidl.htm)
 
+### Wrap any shared data access into data access classes
+When you use some shared data like shared memory, shared objects, buffers, etc., don't access them directly. Instead, wrap them into setter and getter methods of static data access class.
+
+It will help you to control access to shared data and easily find any shared data changes via the where-used list. It will also allow you to mock shared data access in unit tests.
+
 ## Language and Translation
 
 ### Do not hardcode texts
@@ -305,6 +311,8 @@ It has several advantages:
 - integration with ABAP.
 
 Main causes of NativeSQL usage: performance problems, specific DB functions. 
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendatabase_access_guidl.htm)
 
 ## Performance
 
