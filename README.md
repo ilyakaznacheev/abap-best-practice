@@ -29,6 +29,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use class-based exceptions](#use-class-based-exceptions)
     - [Handle exceptions as soon as possible](#handle-exceptions-as-soon-as-possible)
     - [One exception class per one problem, several texts for different problem reasons](#one-exception-class-per-one-problem-several-texts-for-different-problem-reasons)
+    - [Check program accessibility](#check-program-accessibility)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -219,6 +220,20 @@ Don't create many different classes for each raising clause. Instead create one 
 Create meaningful messages that describe each reason for this kind of problem. Error handling can be the same, but reasons, logging, and user notification will differ.
 
 Example: you are reading a file from PC. There can be a different problem - file is corrupted, the file is empty, access denied, etc. But if you just want to know, if the file was uploaded successful, one exception class `zcl_io_error` will be enough. But create proper messages for each error reason or error type to let the user know, *why* exactly the file was not uploaded.
+
+### Check program accessibility
+
+Ensure that your application is can be used by people with impairments. It means that any information on the user interface should be given in an accessible form:
+
+- input and output fields must have meaningful labels;
+- icons must have a tooltip;
+- table columns must have a header;
+- information must not be expressed by color alone;
+- input and output fields on the screen should be grouped as appropriate in frames, each with a meaningful title.
+
+That ensures, that people impairments like color blindness or screen-reader users will have full access to application functionality.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenaccessibility_guidl.htm)
 
 ## Language and Translation
 
