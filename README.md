@@ -44,6 +44,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use classes instead of functional modules or performs whereas possible](#use-classes-instead-of-functional-modules-or-performs-whereas-possible)
 - [Database Usage](#database-usage)
     - [Use OpenSQL whereas possible](#use-opensql-whereas-possible)
+    - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
 - [Testing](#testing)
@@ -337,6 +338,20 @@ It has several advantages:
 Main causes of NativeSQL usage: performance problems, specific DB functions. 
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendatabase_access_guidl.htm)
+
+### Check sy-subrc after DB operations
+
+Check DB operation status explicitly by checking `sy-subrc`.
+
+Even if you don't have any error handling, place `sy-subrc` check to make it explicit and let anyone know, that error handling doesn't require.
+
+```abap
+IF sy-subrc <> 0. 
+  * nothing to do
+ENDIF 
+```
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenreturn_value_guidl.htm)
 
 ## Performance
 
