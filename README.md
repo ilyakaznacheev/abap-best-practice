@@ -33,6 +33,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Wrap any shared data access into data access classes](#wrap-any-shared-data-access-into-data-access-classes)
     - [Avoid implicit data declarations](#avoid-implicit-data-declarations)
     - [Use built-in Boolean types and constants](#use-built-in-boolean-types-and-constants)
+    - [Do not use system fields in UI](#do-not-use-system-fields-in-ui)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -265,6 +266,12 @@ Use constants `abap_true` and `abap_false` for Boolean true and false values. Do
 Usage of `space`, `IS INITIAL` or `IS NOT INITIAL` is also not advisable, because they check state of technical implementation of `abap_bool`, but not the sense of real Boolean data object.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendataobjects_true_value_guidl.htm)
+
+## Do not use system fields in UI
+
+System fields (sy) are technical. They should not be shown to the user.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenuse_ui_guidl.htm)
 
 ## Language and Translation
 
