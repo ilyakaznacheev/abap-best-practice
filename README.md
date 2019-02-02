@@ -37,6 +37,9 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use a suitable category of internal table](#use-a-suitable-category-of-internal-table)
     - [Choose an appropriate way to access a table row](#choose-an-appropriate-way-to-access-a-table-row)
     - [Do not modify an entire table in a loop](#do-not-modify-an-entire-table-in-a-loop)
+    - [Exit processing with RETURN](#exit-processing-with-return)
+    - [Do not implement logic in dialog modules and event blocks](#do-not-implement-logic-in-dialog-modules-and-event-blocks)
+    - [Only use macros in exceptional cases](#only-use-macros-in-exceptional-cases)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -305,6 +308,29 @@ In performance reason better to avoid row copying in loops.
 While looping through an internal table, don't execute statements that will modify the entire table body. Only modify table row-by-row.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenloop_guidl.htm)
+
+### Exit processing with RETURN
+
+Use only `RETURN` to exit method, function, form, etc. Do not use `CHECK` or `EXIT`.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenexit_procedure_guidl.htm)
+
+### Do not implement logic in dialog modules and event blocks
+
+Instead, call the relevant class method, that encapsulates logic implementation.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendial_mod_event_block_guidl.htm)
+
+### Only use macros in exceptional cases
+
+Avoid macros usage when possible. Macro has several disadvantages:
+
+- it's unable to debug;
+- no syntax check;
+- implicit call interface
+- no interface parameters type check.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmacros_guidl.htm)
 
 ## Language and Translation
 
