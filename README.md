@@ -34,6 +34,9 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Avoid implicit data declarations](#avoid-implicit-data-declarations)
     - [Use built-in Boolean types and constants](#use-built-in-boolean-types-and-constants)
     - [Do not use system fields in UI](#do-not-use-system-fields-in-ui)
+    - [Use a suitable category of internal table](#use-a-suitable-category-of-internal-table)
+    - [Choose an appropriate way to access a table row](#choose-an-appropriate-way-to-access-a-table-row)
+    - [Do not modify an entire table in a loop](#do-not-modify-an-entire-table-in-a-loop)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -267,11 +270,41 @@ Usage of `space`, `IS INITIAL` or `IS NOT INITIAL` is also not advisable, becaus
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abendataobjects_true_value_guidl.htm)
 
-## Do not use system fields in UI
+### Do not use system fields in UI
 
 System fields (sy) are technical. They should not be shown to the user.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenuse_ui_guidl.htm)
+
+### Use a suitable category of internal table
+
+Select a suitable table category. For small tables indexes or hashed keys may be redundant, but for large tables always use the following rule:
+
+- index accesses: standard table
+- index accesses and key accesses: sorted table
+- only key accesses: hashed tables
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenselect_table_type_guidl.htm)
+
+### Choose an appropriate way to access a table row
+
+There are three ways to store an accessed row of an internal table while reading - `INTO` copies row into structure, `ASSIGNING` assigns the row to field symbol and `REFERENCE INTO` creates a reference to the row. The same is for table expressions, but a row storage type being chosen by the category of the result.
+
+The rule is:
+
+- use a work area (structure) if the row type is narrow and the read row is not to be modified.
+- use field symbol if the row type is wide or deep and the read row is to be modified.
+- use reference if the row type is wide or deep and a reference to the read row is to be passed.
+
+In performance reason better to avoid row copying in loops.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abentable_output_guidl.htm)
+
+### Do not modify an entire table in a loop
+
+While looping through an internal table, don't execute statements that will modify the entire table body. Only modify table row-by-row.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenloop_guidl.htm)
 
 ## Language and Translation
 
