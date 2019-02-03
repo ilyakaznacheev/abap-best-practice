@@ -47,6 +47,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use same original language for all objects in a project](#use-same-original-language-for-all-objects-in-a-project)
     - [Keep translation in mind](#keep-translation-in-mind)
     - [Use only English naming for development objects](#use-only-english-naming-for-development-objects)
+    - [Use only translatable texts in UI](#use-only-translatable-texts-in-ui)
+    - [Use numbered placeholders in messages](#use-numbered-placeholders-in-messages)
 - [Object-Oriented Programming](#object-oriented-programming)
     - [Use classes instead of functional modules or performs whereas possible](#use-classes-instead-of-functional-modules-or-performs-whereas-possible)
 - [Database Usage](#database-usage)
@@ -375,6 +377,18 @@ When you name some programming objects like variables, method or class names, or
 Do not use other languages, do not combine them. English is understandable in most countries, it is useful and polite to make your code international. Maybe it will be supported by another team from another country.
 
 And it is just a standard and a best practice in a programming world. Don't be a barbarian.
+
+### Use only translatable texts in UI
+
+Send to user only translatable texts, like messages, OTR, text symbols, etc.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abensystem_text_guidl.htm)
+
+### Use numbered placeholders in messages
+
+Use numbered placeholders `&1` - `&4` instead of anonymous placeholders `&`. Order of inserted words may differ in different languages. A translator may need to change the order of the replacement texts when translating message texts. With anonymous placeholders, it isn't possible.
+
+[SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abentrans_relevant_text_guidl.htm)
 
 ## Object-Oriented Programming
 
