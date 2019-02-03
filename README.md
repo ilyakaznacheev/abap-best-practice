@@ -51,6 +51,9 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use numbered placeholders in messages](#use-numbered-placeholders-in-messages)
 - [Object-Oriented Programming](#object-oriented-programming)
     - [Use classes instead of functional modules or performs whereas possible](#use-classes-instead-of-functional-modules-or-performs-whereas-possible)
+    - [Stay SOLID](#stay-solid)
+    - [Use GRASP](#use-grasp)
+    - [Learn OOP design patterns](#learn-oop-design-patterns)
 - [Database Usage](#database-usage)
     - [Use OpenSQL whereas possible](#use-opensql-whereas-possible)
     - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
@@ -405,6 +408,28 @@ business processes.
 Furthermore, all new SAP technologies are class-based.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenabap_obj_progr_model_guidl.htm)
+
+### Stay SOLID
+
+Use SOLID principles in OOP development. Here is five core principles of a flexible and extendable software development:
+
+- [**S**ingle responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+- [**O**pen/closed principle](https://en.wikipedia.org/wiki/Open/closed_principle)
+- [**L**iskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
+- [**I**nterface segregation principle](https://en.wikipedia.org/wiki/Interface_segregation_principle)
+- [**D**ependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+
+### Use GRASP
+
+This is a set of patterns and principles for assigning responsibility to classes and objects in the object-oriented design.
+
+There are not only useful behavioral patterns but also very important principles like "low coupling" and "high cohesion".
+
+[Wikipedia](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design))
+
+### Learn OOP design patterns
+
+There is a set of well-known classic OOP design patterns, which are very handy in enterprise development. If you know them, you can easily share design ideas with the team, faster solve architecture challenges and find better problem solutions.
 
 ## Database Usage
 
