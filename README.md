@@ -98,6 +98,8 @@ Some statements in ABAP are outdated. Some of them are deprecated, some are just
 
 ## Coding
 
+Common rules of writing better code in ABAP
+
 ### Follow the Separation of Concerns principle
 
 Separate program into units with minimal overlapping between the functions of the individual units.
@@ -334,6 +336,8 @@ Avoid macros usage when possible. Macro has several disadvantages:
 
 ## Language and Translation
 
+How to make application ready for internationalization and localization
+
 ### Do not hardcode texts
 
 Never write texts as inline text literals - they are difficult to find and not possible to translate. Use message class or text symbol instead. 
@@ -390,6 +394,8 @@ Furthermore, all new SAP technologies are class-based.
 
 ## Database Usage
 
+How to create efficient DB requests
+
 ### Use OpenSQL whereas possible
 
 Use OpenSQL (ABAP SQL since 7.53) instead of Native SQL.
@@ -420,6 +426,8 @@ ENDIF
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenreturn_value_guidl.htm)
 
 ## Performance
+
+Use this rules to avoid performance bottlenecks
 
 ### Do not perform SELECT in loops
 
