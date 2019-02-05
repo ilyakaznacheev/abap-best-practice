@@ -260,7 +260,7 @@ When you use some shared data like shared memory, shared objects, buffers, etc.,
 
 It will help you to control access to shared data and easily find any shared data changes via the where-used list. It will also allow you to mock shared data access in unit tests.
 
-### Use built-in Boolean types and constants
+### Avoid implicit data declarations
 
 When possible try to not use data declarations like `TABLES`, `NODES`. They create data objects with implicit access.
 
