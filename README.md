@@ -54,6 +54,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Stay SOLID](#stay-solid)
     - [Use GRASP](#use-grasp)
     - [Learn OOP design patterns](#learn-oop-design-patterns)
+    - [Respect The Law of Demeter](#respect-the-law-of-demeter)
+    - [Avoid classes for helpers, utilities, etc.](#avoid-classes-for-helpers-utilities-etc)
 - [Database Usage](#database-usage)
     - [Use OpenSQL whereas possible](#use-opensql-whereas-possible)
     - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
@@ -435,6 +437,31 @@ There are not only useful behavioral patterns but also very important principles
 ### Learn OOP design patterns
 
 There is a set of well-known classic OOP design patterns, which are very handy in enterprise development. If you know them, you can easily share design ideas with the team, faster solve architecture challenges and find better problem solutions.
+
+### Respect The Law of Demeter
+
+- each unit should have only limited knowledge about other units: only units "closely" related to the current unit;
+- each unit should only talk to its friends; don't talk to strangers;
+- only talk to your immediate friends.
+
+That means if class A has access to class B, and B, in turn, has access to class C, class A shouldn't be able to call a method of C directly like `A->B->C->method_of_C()`. B has to have a special method for it.
+
+For example if we want a dog to bark, we will not call `lc_dog->get_head()->get_voice_functions()->run_bark_sound()`, but `lc_dog->bark()`.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Law_of_Demeter)
+
+### Avoid classes for helpers, utilities, etc.
+
+There are many cases in ABAP development when some utility method may be needed. But instead of static methods turn them into powerful objects. Think about function as a class, that is responsible to do this kind of operations. E.g. instead of utility to upload Excel table into string table, create a class that uploads an Excel table in the constructor and able to give it to you in any shape you want (even as a string table). 
+
+You can go ahead and create an interface for table data formatting and implement it for various range of tables - Excel, CSV, XML, etc. Or set a table reader interface as a constructor parameter of table formatter, and implement it for different kinds of data uploads.
+
+In any case, it will be more flexible and more useful as just a static method.
+
+For example:
+
+- `lt_str = cl_file_util=>upload_file_into_str_tab( lv_path )` → `lt_str = NEW cl_file( path )->get_str_tab( )`
+- `lv_date = cl_format_util=>format_date_to_gmt( sy-datum )` → `lv_date = NEW cl_date_formatter( sy-datum )->get_gmt( )`
 
 ## Database Usage
 
