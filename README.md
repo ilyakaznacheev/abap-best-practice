@@ -60,6 +60,7 @@ Feel free to create an issue or make a pull request. More information in [contri
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
 - [Testing](#testing)
+  - [Test only public interface](#test-only-public-interface)
 - [S/4 Programming Model](#s4-programming-model)
 - [BOPF](#bopf)
 - [Core Data Services](#core-data-services)
@@ -478,7 +479,17 @@ It may be difficult from an architecture perspective to decouple DB operations f
 
 ## Testing
 
-todo
+How to check your code quality
+
+### Test only public interface
+
+In the unit test, you should not test any internal implementation of the class, e.g. private and protected methods.
+
+Test only public methods, it will simulate the way program use the class in "real life". Every internal method will be called from public methods anyway. If not - the method doesn't really used in the class and should be removed.
+
+The test should check the behavior of the class, not it's implementation. You can refactor or change the implementation, but the test will be the same. If the behavior of the class will not change, no change required in the test too.
+
+Leave any internal logic encapsulated by testing only public methods.
 
 ## S/4 Programming Model
 
