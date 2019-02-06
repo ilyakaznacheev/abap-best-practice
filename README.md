@@ -64,6 +64,7 @@ Feel free to create an issue or make a pull request. More information in [contri
   - [Isolate your tests](#isolate-your-tests)
   - [Keep tests repeatable](#keep-tests-repeatable)
   - [Use unit tests as behavior example and documentation](#use-unit-tests-as-behavior-example-and-documentation)
+  - [Keep tests in mind while designing architecture](#keep-tests-in-mind-while-designing-architecture)
 - [S/4 Programming Model](#s4-programming-model)
 - [BOPF](#bopf)
 - [Core Data Services](#core-data-services)
@@ -505,6 +506,10 @@ Same test input should give the same output, actual values should meet expectati
 ### Use unit tests as behavior example and documentation
 
 A unit test shows how a program module should work. If you will test it the same way, as it is used in a real program, it will be the best documentation (with examples!) for a developer.
+
+### Keep tests in mind while designing architecture
+
+Only well-designed programs can be easily tested. To make it easier for unit testing make your modules able to be tested independently. Make them low coupled and highly cohesive, remove unnecessary relations, use dependency injection, hide dependent classes behind interfaces to mock them in tests. SoC, SOLID, GRASP are your friends.
 
 ## S/4 Programming Model
 
