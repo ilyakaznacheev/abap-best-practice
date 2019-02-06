@@ -61,6 +61,9 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
 - [Testing](#testing)
   - [Test only public interface](#test-only-public-interface)
+  - [Isolate your tests](#isolate-your-tests)
+  - [Keep tests repeatable](#keep-tests-repeatable)
+  - [Use unit tests as behavior example and documentation](#use-unit-tests-as-behavior-example-and-documentation)
 - [S/4 Programming Model](#s4-programming-model)
 - [BOPF](#bopf)
 - [Core Data Services](#core-data-services)
@@ -490,6 +493,18 @@ Test only public methods, it will simulate the way program use the class in "rea
 The test should check the behavior of the class, not it's implementation. You can refactor or change the implementation, but the test will be the same. If the behavior of the class will not change, no change required in the test too.
 
 Leave any internal logic encapsulated by testing only public methods.
+
+### Isolate your tests
+
+Tests should not affect each other. Each test should run separately in isolated environments - e.g. you should clean up the environment before/after a test run. 
+
+### Keep tests repeatable
+
+Same test input should give the same output, actual values should meet expectations, test behavior should be repeatable.
+
+### Use unit tests as behavior example and documentation
+
+A unit test shows how a program module should work. If you will test it the same way, as it is used in a real program, it will be the best documentation (with examples!) for a developer.
 
 ## S/4 Programming Model
 
