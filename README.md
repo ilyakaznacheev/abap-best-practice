@@ -61,6 +61,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
+    - [Prefer JOIN over FAE and RANGE](#prefer-join-over-fae-and-range)
+    - [Using FAE on HANA](#using-fae-on-hana)
 - [Testing](#testing)
   - [Test only public interface](#test-only-public-interface)
   - [Isolate your tests](#isolate-your-tests)
@@ -507,6 +509,16 @@ Try to avoid DB operations in loops like `DO-ENDDO`, `WHILE-ENDWHILE`, `LOOP-END
 Instead, extract operation criteria from the loop and execute DB operation **once**.
 
 It may be difficult from an architecture perspective to decouple DB operations from loops. To solve this problem you can use Data Access Class (DAC) pattern to encapsulate all DB operations into some class (or set of classes) and perform DB operations as little as possible (e.g. before loop or after loop using lazy load). Then perform a regular read in a loop, but from internal table encapsulated in DAC, not from DB.
+
+### Prefer JOIN over FAE and RANGE
+
+Join operations are much faster because they don't have a lot of inputs (no additional transfer from Application to DB) and field mapping (ON part of your SELECT) is performed using internal DB structures (no additional conversion needed).
+
+### Using FAE on HANA
+
+FAE (FOR ALL ENTRIES) is still relevant on HANA. Make sure to update your DB to the latest available patch level and use FDA (Fast Data Access). FDA operations are 10x to 100x times faster than conventional FAE.
+
+[2399993 - FAQ: SAP HANA Fast Data Access (FDA)](https://launchpad.support.sap.com/#/notes/2399993)
 
 ## Testing
 
