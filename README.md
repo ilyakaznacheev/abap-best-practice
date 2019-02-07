@@ -62,7 +62,7 @@ Feel free to create an issue or make a pull request. More information in [contri
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
     - [Prefer JOIN over FAE and RANGE](#prefer-join-over-fae-and-range)
-    - [Using FAE on HANA](#using-fae-on-hana)
+    - [Use FAE on HANA](#use-fae-on-hana)
 - [Testing](#testing)
   - [Test only public interface](#test-only-public-interface)
   - [Isolate your tests](#isolate-your-tests)
