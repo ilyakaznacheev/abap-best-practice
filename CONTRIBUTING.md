@@ -33,6 +33,8 @@ If there is a well-known or obvious rule, it will be merged soon. Otherwise, the
 
 Provide a link to a public proof page (Documentation, SAP help or SAP blogs) when possible.
 
+Please form the practice name in imperative form like "Use ..." or "Do ...".
+
 ## Changing the best practice
 
 If you want to apply a meaningful change to a best practice create an issue with tag `#discussion` (or find existing one) and assign your pull request to it. 
