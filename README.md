@@ -63,6 +63,8 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
     - [Prefer JOIN over FAE and RANGE](#prefer-join-over-fae-and-range)
     - [Use FAE on HANA](#use-fae-on-hana)
+    - [Reduce the number of DB requests](#reduce-the-number-of-db-requests)
+    - [Profile your code](#profile-your-code)
 - [Testing](#testing)
   - [Test only public interface](#test-only-public-interface)
   - [Isolate your tests](#isolate-your-tests)
@@ -519,6 +521,16 @@ Join operations are much faster because they don't have a lot of inputs (no addi
 FAE (FOR ALL ENTRIES) is still relevant on HANA. Make sure to update your DB to the latest available patch level and use FDA (Fast Data Access). FDA operations are 10x to 100x times faster than conventional FAE.
 
 [2399993 - FAQ: SAP HANA Fast Data Access (FDA)](https://launchpad.support.sap.com/#/notes/2399993)
+
+### Reduce the number of DB requests
+
+Try to organize your code in such a way as to execute as little DB requests as possible. DB access often is a bottleneck, and a number of DB sessions is limited. Try to keep performance in mind and group similar requests together. 
+
+Fetch 10 rows once instead of 10 requests for each row. It may require to change a program architecture, for example, to calculate request keys before you actually will use the results.
+
+### Profile your code
+
+Perform profiling of your code when you write something more complicated, than a list report. Use `ST05`, `SAT` or any other profiling tool you need to ensure, that your code has no bottlenecks and performance issues.
 
 ## Testing
 
