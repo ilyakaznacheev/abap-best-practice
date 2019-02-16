@@ -516,7 +516,7 @@ It may be difficult from an architecture perspective to decouple DB operations f
 
 ### Prefer JOIN over FAE and RANGE
 
-Join operations are much faster because they don't have a lot of inputs (no additional transfer from Application to DB) and field mapping (ON part of your SELECT) is performed using internal DB structures (no additional conversion needed).
+Join operations are much faster because they don't have a lot of inputs (no additional transfer from Application to DB) and field mapping (`ON` part of your `SELECT`) is performed using internal DB structures (no additional conversion needed).
 
 ### Use FAE on HANA
 
