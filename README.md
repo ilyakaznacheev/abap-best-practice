@@ -74,6 +74,7 @@ Feel free to create an issue or make a pull request. More information in [contri
 - [S/4 Programming Model](#s4-programming-model)
 - [BOPF](#bopf)
 - [Core Data Services](#core-data-services)
+  - [Avoid business logic in CDS Views](#avoid-business-logic-in-cds-views)
     
 
 ## Style and Guidelines
@@ -572,4 +573,10 @@ todo
 
 ## Core Data Services
 
-todo
+### Avoid business logic in CDS Views
+
+Try to use CDS Views only for data modeling. 
+
+If you add some business-related conditions or rules, they will probably require often updates, that can break programs, that use those CDS Views, and unit tests. Changes in CDS Views can also influence overlying CDS Views implicitly.
+
+Use CDS Views as data models only and separate corresponding business logic into ABAP programs or business objects.
