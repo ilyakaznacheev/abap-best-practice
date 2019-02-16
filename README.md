@@ -73,6 +73,7 @@ Feel free to create an issue or make a pull request. More information in [contri
   - [Keep tests in mind while designing architecture](#keep-tests-in-mind-while-designing-architecture)
 - [S/4 Programming Model](#s4-programming-model)
 - [BOPF](#bopf)
+  - [Avoid direct access to BOPF data](#avoid-direct-access-to-bopf-data)
 - [Core Data Services](#core-data-services)
   - [Avoid business logic in CDS Views](#avoid-business-logic-in-cds-views)
     
@@ -569,7 +570,9 @@ todo
 
 ## BOPF
 
-todo
+### Avoid direct access to BOPF data
+
+Do not execute direct DB operations on BOPF tables. BOPF encapsulates different operations, such as buffering, data validations, data calculations, etc. that will be triggered only at BOPF API call. Direct access may cause errors in the BOPF working process.
 
 ## Core Data Services
 
