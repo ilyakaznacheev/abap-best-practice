@@ -520,7 +520,7 @@ Join operations are much faster because they don't have a lot of inputs (no addi
 
 ### Use FAE on HANA
 
-FAE (FOR ALL ENTRIES) is still relevant on HANA. Make sure to update your DB to the latest available patch level and use FDA (Fast Data Access). FDA operations are 10x to 100x times faster than conventional FAE.
+FAE (`FOR ALL ENTRIES`) is still relevant on HANA. Make sure to update your DB to the latest available patch level and use FDA (Fast Data Access). FDA operations are 10x to 100x times faster than conventional FAE.
 
 [2399993 - FAQ: SAP HANA Fast Data Access (FDA)](https://launchpad.support.sap.com/#/notes/2399993)
 
