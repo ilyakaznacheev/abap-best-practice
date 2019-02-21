@@ -570,11 +570,15 @@ todo
 
 ## BOPF
 
+How to use Business Object Processing Framework the right way
+
 ### Avoid direct access to BOPF data
 
 Do not execute direct DB operations on BOPF tables. BOPF encapsulates different operations, such as buffering, data validations, data calculations, etc. that will be triggered only at BOPF API call. Direct access may cause errors in the BOPF working process.
 
 ## Core Data Services
+
+How not to get lost in the CDS hierarchy
 
 ### Avoid business logic in CDS Views
 
