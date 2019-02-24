@@ -76,6 +76,7 @@ Feel free to create an issue or make a pull request. More information in [contri
   - [Avoid direct access to BOPF data](#avoid-direct-access-to-bopf-data)
 - [Core Data Services](#core-data-services)
   - [Avoid business logic in CDS Views](#avoid-business-logic-in-cds-views)
+  - [Avoid direct access to database tables and table functions in upper layer CDS View hierarchy](#avoid-direct-access-to-database-tables-and-table-functions-in-upper-layer-cds-view-hierarchy)
     
 
 ## Style and Guidelines
@@ -587,3 +588,11 @@ Try to use CDS Views only for data modeling.
 If you add some business-related conditions or rules, they will probably require often updates, that can break programs, that use those CDS Views, and unit tests. Changes in CDS Views can also influence overlying CDS Views implicitly.
 
 Use CDS Views as data models only and separate corresponding business logic into ABAP programs or business objects.
+
+### Avoid direct access to database tables and table functions in upper layer CDS View hierarchy
+
+For each database table, database view or table function corresponding Basic CDS View should be created. Those views describe meaningful names for database table fields, add associations and data-specific annotations.
+
+For example, a view `I_Material` for table `MARA`.
+
+Use Basic Views instead of direct access to database tables in CDS Views. Create Basic CDS View when you create a new database table and want to access its data in CDS.
