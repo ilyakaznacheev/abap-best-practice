@@ -59,6 +59,7 @@ Feel free to create an issue or make a pull request. More information in [contri
 - [Database Usage](#database-usage)
     - [Use OpenSQL whereas possible](#use-opensql-whereas-possible)
     - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
+    - [Read only those fields you need](#read-only-those-fields-you-need)
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
     - [Prefer JOIN over FAE and RANGE](#prefer-join-over-fae-and-range)
@@ -502,6 +503,15 @@ ENDIF
 ```
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenreturn_value_guidl.htm)
+
+### Read only those fields you need
+
+Avoid `SELECT *` in your code. There are several reasons:
+
+- As many fields you fetch, as more time it takes and as more DB channel capacity it uses. Reading of unnecessary fields is bad from performance reasons;
+- Database table schema may change in the future. If you forget to adapt your program (and you probably will, because table schema may be changed by another person), you will read fields, which are don't needed for your program.
+
+Exception: consumption CDS views, which are unique and designed for a certain use-case, so they probably will consist of necessary fields only.
 
 ## Performance
 
