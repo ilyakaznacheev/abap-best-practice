@@ -60,6 +60,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Use OpenSQL whereas possible](#use-opensql-whereas-possible)
     - [Check sy-subrc after DB operations](#check-sy-subrc-after-db-operations)
     - [Read only those fields you need](#read-only-those-fields-you-need)
+    - [Check FAE table emptiness](#check-fae-table-emptiness)
 - [Performance](#perfromance)
     - [Do not perform SELECT in loops](#do-not-perform-select-in-loops)
     - [Prefer JOIN over FAE and RANGE](#prefer-join-over-fae-and-range)
@@ -512,6 +513,14 @@ Avoid `SELECT *` in your code. There are several reasons:
 - Database table schema may change in the future. If you forget to adapt your program (and you probably will, because table schema may be changed by another person), you will read fields, which are don't needed for your program.
 
 Exception: consumption CDS views, which are unique and designed for a certain use-case, so they probably will consist of necessary fields only.
+
+### Check FAE table emptiness
+
+Always check if the table, that you about to use in `FOR ALL ENTRIES` statement, is not empty.
+
+Otherwise `SELECT` will return **every** entry that database table contains ignoring other `WHERE` conditions.
+
+That is if your database table contains 1K entries and you where clause cut the number down to 10, if the table in the FAE will be empty, select will fetch 1K entries.
 
 ## Performance
 
