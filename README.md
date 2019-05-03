@@ -40,6 +40,7 @@ Feel free to create an issue or make a pull request. More information in [contri
     - [Exit processing with RETURN](#exit-processing-with-return)
     - [Do not implement logic in dialog modules and event blocks](#do-not-implement-logic-in-dialog-modules-and-event-blocks)
     - [Only use macros in exceptional cases](#only-use-macros-in-exceptional-cases)
+    - [Make anchors for implicitly called messages](#make-anchors-for-implicitly-called-messages)
 - [Language and Translation](#language-and-translation)
     - [Do not hardcode texts](#do-not-hardcode-texts)
     - [Do not use text constants](#do-not-use-text-constants)
@@ -354,6 +355,22 @@ Avoid macros usage when possible. Macro has several disadvantages:
 - no interface parameters type check.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenmacros_guidl.htm)
+
+### Make anchors for implicitly called messages
+
+When you pass message attributes (class, number, arguments) implicitly, e.g. by function or method call, or using variables, use anchors to let the message be searchable within a where-used list.
+
+It can be done the following way (as it is done in a standard):
+
+```abap
+IF 1 = 2. MESSAGE i123(abc) ... . ENDIF.
+```
+
+or 
+
+```abap
+MESSAGE i123(abc) ... INTO sy-msgli. "and then use sy-msg* fields to pass the message attributes
+```
 
 ## Language and Translation
 
