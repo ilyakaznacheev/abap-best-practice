@@ -142,7 +142,7 @@ Make you statements self-explanatory, e.g.:
 
 Do not comment aspects of implementation, a self-describing code will provide this information for a reader. Comment logic from the business process point of view, the information that the reader can't extract from code.
 
-In the best case, short description o9f business logic unit in method header or before method call will be enough.
+In the best case, short description of business logic unit in method header or before method call will be enough.
 
 ### Be as local as possible
 
