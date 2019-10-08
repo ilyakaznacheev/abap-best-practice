@@ -108,7 +108,7 @@ Name your variables, methods, classes, etc. with underscores between words like 
 
 There are many alternative language constructs in ABAP like set of (`=`, `<>`, `>=`, etc.) vs. (`EQ`, `NE`, `GE`, etc.), data declarations, operations, etc.
 
-Chose one of alternatives and use it consistently during you development.
+Choose one of alternatives and use it consistently during your development.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenalternative_langu_guidl.htm)
 
@@ -236,7 +236,7 @@ Remove old and unused code. Syntax check and extended program check will help yo
 
 ### Do not ignore errors
 
-React to errors. It can be either a proper message, or blog entry, or an exception raising. But don't ignore them, otherwise, you will no way to find a cause of any problem.
+React to errors. It can be either a proper message, or a blog entry, or an exception raising. But don't ignore them, otherwise, you will no way to find a cause of any problem.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenreaction_error_guidl.htm)
 
@@ -268,7 +268,7 @@ Ensure that your application is can be used by people with impairments. It means
 - information must not be expressed by color alone;
 - input and output fields on the screen should be grouped as appropriate in frames, each with a meaningful title.
 
-That ensures, that people impairments like color blindness or screen-reader users will have full access to application functionality.
+That ensures, that people with impairments like color blindness or screen-reader users will have full access to application functionality.
 
 [SAP Help](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenaccessibility_guidl.htm)
 
@@ -408,7 +408,7 @@ Remember that all texts, messages, names, etc. can be translated. Phrases will h
 
 ### Use only English naming for development objects
 
-When you name some programming objects like variables, method or class names, or dictionary objects like types, structures, tables, etc. use only English names. 
+When you name some programming objects like variables, methods or class names, or dictionary objects like types, structures, tables, etc. use only English names. 
 
 Do not use other languages, do not combine them. English is understandable in most countries, it is useful and polite to make your code international. Maybe it will be supported by another team from another country.
 
@@ -527,7 +527,7 @@ ENDIF
 Avoid `SELECT *` in your code. There are several reasons:
 
 - As many fields you fetch, as more time it takes and as more DB channel capacity it uses. Reading of unnecessary fields is bad from performance reasons;
-- Database table schema may change in the future. If you forget to adapt your program (and you probably will, because table schema may be changed by another person), you will read fields, which are don't needed for your program.
+- Database table schema may change in the future. If you forget to adapt your program (and you probably will, because table schema may be changed by another person), you will read fields, which aren't needed for your program.
 
 Exception: consumption CDS views, which are unique and designed for a certain use-case, so they probably will consist of necessary fields only.
 
@@ -537,7 +537,7 @@ Always check if the table, that you about to use in `FOR ALL ENTRIES` statement,
 
 Otherwise `SELECT` will return **every** entry that database table contains ignoring other `WHERE` conditions.
 
-That is if your database table contains 1K entries and you where clause cut the number down to 10, if the table in the FAE will be empty, select will fetch 1K entries.
+That is if your database table contains 1K entries and your `WHERE` clause cuts the number down to 10, if the table in the FAE is empty, select will fetch 1K entries.
 
 ## Performance
 
@@ -579,9 +579,9 @@ How to check your code quality
 
 In the unit test, you should not test any internal implementation of the class, e.g. private and protected methods.
 
-Test only public methods, it will simulate the way program use the class in "real life". Every internal method will be called from public methods anyway. If not - the method doesn't really used in the class and should be removed.
+Test only public methods, it will simulate the way program uses the class in "real life". Every internal method will be called from public methods anyway. If not - the method doesn't really used in the class and should be removed.
 
-The test should check the behavior of the class, not it's implementation. You can refactor or change the implementation, but the test will be the same. If the behavior of the class will not change, no change required in the test too.
+The test should check the behavior of the class, not its implementation. You can refactor or change the implementation, but the test will be the same. If the behavior of the class will not change, no change required in the test too.
 
 Leave any internal logic encapsulated by testing only public methods.
 
